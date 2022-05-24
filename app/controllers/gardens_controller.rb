@@ -2,7 +2,7 @@ class GardensController < ApplicationController
   before_action :set_gardens, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gardens = current_user.gardens
+    @gardens = Garden.all
   end
 
   def show

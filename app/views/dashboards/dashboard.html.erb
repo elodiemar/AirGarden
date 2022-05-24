@@ -1,0 +1,12 @@
+<h1> Mon dashboard</h1>
+
+<h2> Mes jardins</h2>
+<ul>
+  <% @gardens.each do |garden| %>
+    <li> <b> <%= garden.title %> </b> </li>
+    <li>  <%= garden.size %> </li>
+    <li>  <%= garden.capacity %> </li>
+    <li>  <%= garden.description %> </li>
+    <li>  <%= garden.price_per_hour %> </li>
+    <% end %>
+ </ul>

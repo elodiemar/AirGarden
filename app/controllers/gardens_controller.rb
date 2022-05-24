@@ -1,28 +1,33 @@
 class GardensController < ApplicationController
-  before_action :set_gardens, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_garden, only: [:show, :edit, :update, :destroy]
+  
   def index
-    @gardens = Garden.all
+    @gardens = policy_scope(Garden)
   end
 
   def show
+    authorize @garden
   end
 
   def edit
+    authorize @garden
   end
 
   def update
+    authorize @garden
     @garden.update(gardens_params)
     redirect_to garden_path(@garden)
   end
 
   def new
     @garden = Garden.new
-    # skip_authorization
+    authorize @garden
   end
 
   def create
     @garden = Garden.new(gardens_params)
+    @garden.user = current_user
+    authorize @garden
     if @garden.save
       redirect_to garden_path(@garden)
     else
@@ -31,6 +36,7 @@ class GardensController < ApplicationController
   end
 
   def destroy
+    authorize @garden
     @garden.destroy
     redirect_to root_path
   end
@@ -39,9 +45,10 @@ class GardensController < ApplicationController
 
   def gardens_params
     params.require(:garden).permit(:title, :size, :capacity, :description, :price_per_hour)
+    # :address,
   end
 
-  def set_gardens
+  def set_garden
     @garden = Garden.find(params[:id])
   end
 end

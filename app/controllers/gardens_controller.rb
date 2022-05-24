@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @gardens = policy_scope(Garden)
   end

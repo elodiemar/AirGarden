@@ -19,14 +19,14 @@ class GardensController < ApplicationController
   end
 
   def new
-    authorize @garden
     @garden = Garden.new
+    authorize @garden
   end
 
   def create
-    authorize @garden
-    @garden.user = current_user
     @garden = Garden.new(gardens_params)
+    @garden.user = current_user
+    authorize @garden
     if @garden.save
       redirect_to garden_path(@garden)
     else

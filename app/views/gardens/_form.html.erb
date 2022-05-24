@@ -6,5 +6,6 @@
   <%= f.input :capacity %>
   <%= f.input :description %>
   <%= f.input :price_per_hour %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>

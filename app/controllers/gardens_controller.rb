@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   before_action :set_gardens, only: [:show, :edit, :update, :destroy]
-  def home
+  def index
     @gardens = Garden.all
   end
 

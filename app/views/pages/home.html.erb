@@ -8,7 +8,9 @@
 <div class="container d-flex flex-wrap justify-content-between">
   <% @gardens.each do |garden| %>
     <div class="card-garden">
-      <%= image_tag "garden_one" %>
+      <%= link_to garden_path(garden) do %>
+        <%= image_tag "garden_one" %>
+      <% end %>
       <div class="card-garden-infos">
         <div class="card-garden-left">
           <h2><%= garden.title %></h2>

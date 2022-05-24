@@ -21,8 +21,8 @@ class GardensController < ApplicationController
 
   def create
     @garden = Garden.new(gardens_params)
+    @garden.user = current_user
     if @garden.save
-      raise
       redirect_to garden_path(@garden)
     else
       render :new, status: :unprocessable_entity

@@ -1,5 +1,9 @@
-
+<div class="fullscreen_footer">
 <h1><%= @garden.title %></h1>
+<br>
+<% @garden.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <%# <p>City : <%= @garden.city %></p> %>
 <p>Size : <%= @garden.size %> m2</p>
 <p>Capacity : <%= @garden.capacity %>  approx/people</p>
@@ -18,3 +22,4 @@
 <% end %>
 <!-- [...] -->
 <%= button_to "Destroy this garden", @garden, method: :delete if policy(@garden).destroy? %>
+</div>

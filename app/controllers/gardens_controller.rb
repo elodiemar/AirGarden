@@ -1,7 +1,7 @@
 class GardensController < ApplicationController
-  before_action :set_gardens, only: [:show, :edit, :update, :destroy]
+  before_action :set_garden, only: [:show, :edit, :update, :destroy]
   def index
-    @gardens = Garden.all
+    @gardens = policy_scope(Garden)
   end
 
   def show
@@ -46,7 +46,7 @@ class GardensController < ApplicationController
     params.require(:garden).permit(:title, :size, :capacity, :description, :price_per_hour)
   end
 
-  def set_gardens
+  def set_garden
     @garden = Garden.find(params[:id])
   end
 end

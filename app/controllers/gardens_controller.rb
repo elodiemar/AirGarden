@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   before_action :set_gardens, only: [:show, :edit, :update, :destroy]
-  def home
+  def index
     @gardens = Garden.all
   end
 
@@ -22,6 +22,7 @@ class GardensController < ApplicationController
   def create
     @garden = Garden.new(gardens_params)
     if @garden.save
+      raise
       redirect_to garden_path(@garden)
     else
       render :new, status: :unprocessable_entity
@@ -36,7 +37,8 @@ class GardensController < ApplicationController
   private
 
   def gardens_params
-    params.require(:garden).permit(:title, :address, :size, :capacity, :description, :price_per_hour)
+    params.require(:garden).permit(:title, :size, :capacity, :description, :price_per_hour)
+    # :address,
   end
 
   def set_gardens

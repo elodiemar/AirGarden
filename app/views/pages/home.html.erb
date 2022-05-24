@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+  <div>
+    <h1>Privatisez un jardin ou une piscine !</h1>
+    <p>Envie d'un écrin de verdure pour un anniversaire ou une réunion de famille ou simplement un apéro piscine ? </p>
+    <p>Trouver VOTRE jardin idéal</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <% @gardens.each do |garden| %>
+      <p><%= garden.title %></p>
+      <p><%= garden.capacity %></p>
+      <p><%= garden.price_per_hour %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

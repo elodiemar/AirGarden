@@ -17,7 +17,7 @@ User.create(
 
 10.times do
     user = User.first
-    garden = Garden.create(
+    p garden = Garden.create(
     title: Faker::Movie.title,
     description: Faker::Movie.quote,
     capacity: rand(0..10),

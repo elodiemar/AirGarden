@@ -1,12 +1,12 @@
 
 <h1><%= @garden.title %></h1>
-<p><%= @garden.size %></p>
-<p><%= @garden.capacity %></p>
-<p><%= @garden.description %></p>
-<p><%= @garden.price_per_hour %></p>
+<p>Size : <%= @garden.size %> m2</p>
+<p>Capacity : <%= @garden.capacity %>  approx/people</p>
+<p>Description : <%= @garden.description %></p>
+<p>Price : <%= @garden.price_per_hour %> $/per hour</p>
 <br>
 <%= link_to 'Update your garden', edit_garden_path(@garden) %>
 <br>
-<%= link_to 'Delete this garden', delete_garden_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<%= link_to 'Delete this garden', garden_path(@garden), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 <br>
 <%= link_to 'Main menu', root_path %>

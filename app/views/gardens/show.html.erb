@@ -14,12 +14,3 @@
 <%# <p><%= @user.review %></p> %>
 <br>
 <%= link_to 'Main menu', root_path %>
-
-<%= link_to "New Garden", new_garden_path if policy(Garden).new? %>
-
-<% if policy(@garden).edit? %>
-  <%= link_to "Edit this Garden", edit_garden_path(@garden) %> |
-<% end %>
-<!-- [...] -->
-<%= button_to "Destroy this garden", @garden, method: :delete if policy(@garden).destroy? %>
-</div>

@@ -1,0 +1,17 @@
+<%= form_for(garden) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :size %>
+  <%= f.number_field :size %>
+  <%= f.label :capacity %>
+  <%= f.number_field :capacity %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :price_per_hour %>
+  <%= f.text_field :price_per_hour %>
+  <%= f.submit %>
+<% end %>
+
+:title, :size, :capacity, :description, :price_per_hour

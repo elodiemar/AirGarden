@@ -5,21 +5,27 @@ class GardensController < ApplicationController
   end
 
   def show
+    authorize @garden
   end
 
   def edit
+    authorize @garden
   end
 
   def update
+    authorize @garden
     @garden.update(gardens_params)
     redirect_to garden_path(@garden)
   end
 
   def new
+    authorize @garden
     @garden = Garden.new
   end
 
   def create
+    authorize @garden
+    @garden.user = current_user
     @garden = Garden.new(gardens_params)
     if @garden.save
       redirect_to garden_path(@garden)
@@ -29,6 +35,7 @@ class GardensController < ApplicationController
   end
 
   def destroy
+    authorize @garden
     @garden.destroy
     redirect_to root_path, status: :see_other
   end

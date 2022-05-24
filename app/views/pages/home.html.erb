@@ -1,12 +1,12 @@
 
   <div class="card-banner">
-    <h1>Privatisez un jardin ou une piscine !</h1>
-    <h4>Envie d'un écrin de verdure pour un anniversaire ou une réunion de famille ou simplement un apéro piscine ? </h4>
-    <h4>Trouver VOTRE jardin idéal</h4>
+      <h1>Privatisez un jardin ou une piscine !</h1>
+      <h4>Envie d'un écrin de verdure pour un anniversaire ou une réunion de famille ou simplement un apéro piscine ? </h4>
+      <h4>Trouver VOTRE jardin idéal</h4>
   </div>
 
 <div class="container d-flex flex-wrap justify-content-between">
-  <% @gardens.each do |garden| %>
+  <% @gardens.last(12).each do |garden| %>
     <div class="card-garden">
       <%= link_to garden_path(garden) do %>
         <%= image_tag "garden_one" %>

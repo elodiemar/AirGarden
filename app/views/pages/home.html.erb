@@ -1,2 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+  <div class="card-banner">
+    <h1>Privatisez un jardin ou une piscine !</h1>
+    <h4>Envie d'un écrin de verdure pour un anniversaire ou une réunion de famille ou simplement un apéro piscine ? </h4>
+    <h4>Trouver VOTRE jardin idéal</h4>
+  </div>
+
+<div class="container d-flex flex-wrap justify-content-between">
+  <% @gardens.each do |garden| %>
+    <div class="card-garden">
+      <%= image_tag "garden_one" %>
+      <div class="card-garden-infos">
+        <div class="card-garden-left">
+          <h2><%= garden.title %></h2>
+          <p>Ville</p>
+        </div>
+        <div class="card-garden-right">
+          <h6>Capacity : <%= garden.capacity %></h6>
+          <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

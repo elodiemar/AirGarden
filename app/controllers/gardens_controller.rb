@@ -1,5 +1,6 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
+  
   def index
     @gardens = policy_scope(Garden)
   end
@@ -37,7 +38,7 @@ class GardensController < ApplicationController
   def destroy
     authorize @garden
     @garden.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to root_path
   end
 
   private

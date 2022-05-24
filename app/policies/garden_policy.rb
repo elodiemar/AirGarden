@@ -2,7 +2,7 @@ class GardenPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
-      @restaurants = policy_scope(Restaurant)
+      @garden = policy_scope(garden)
     end
   end
 

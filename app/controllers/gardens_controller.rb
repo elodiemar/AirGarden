@@ -18,6 +18,7 @@ class GardensController < ApplicationController
 
   def new
     @garden = Garden.new
+    # skip_authorization
   end
 
   def create
@@ -31,7 +32,7 @@ class GardensController < ApplicationController
 
   def destroy
     @garden.destroy
-    redirect_to root_path, status: :see_other
+    redirect_to root_path
   end
 
   private

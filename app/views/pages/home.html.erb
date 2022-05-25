@@ -9,7 +9,11 @@
   <% @gardens.last(12).each do |garden| %>
     <div class="card-garden">
       <%= link_to garden_path(garden) do %>
+      <% if garden.photos.empty? %>
         <%= image_tag "garden_one" %>
+        <% else %>
+        <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
+        <% end %>
       <% end %>
       <div class="card-garden-infos">
         <div class="card-garden-left">

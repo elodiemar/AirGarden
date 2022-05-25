@@ -1,6 +1,4 @@
 .footer {
-  position: static;
-  margin-top: 20px;
   background: #fafafa;
   display: flex;
   align-items: center;
@@ -27,4 +25,7 @@
 }
 .footer .fa-heart {
   color: #74CB67;
+}
+.fullscreen_footer {
+  min-height: calc(100vh - 169px);
 }

@@ -6,8 +6,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @garden.user = current_user
     @booking = Booking.new(booking_params)
+    @booking.garden = @garden
     if @booking.save!
       redirect_to dashboard_path
     else

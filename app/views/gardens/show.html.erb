@@ -1,16 +1,27 @@
-<div class="fullscreen_footer">
-<h1><%= @garden.title %></h1>
-<br>
-<% @garden.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<%# <p>City : <%= @garden.city %></p> %>
-<p>Size : <%= @garden.size %> m2</p>
-<p>Capacity : <%= @garden.capacity %>  approx/people</p>
-<p>Description : <%= @garden.description %></p>
-<p>Price : <%= @garden.price_per_hour %> $/per hour</p>
-<br>
-<h3>Reviews</h3>
-<%# <p><%= @user.review %></p> %>
-<br>
-<%= link_to 'Main menu', root_path %>
+<div container class="container fullscreen_footer">
+  <h1><%= @garden.title %></h1>
+  <div class="d-flex">
+    <div>
+      <% @garden.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <%# <p>City : <%= @garden.city %></p>
+      <p>Size : <%= @garden.size %> m2</p>
+      <p>Capacity : <%= @garden.capacity %>  approx/people</p>
+      <p>Description : <%= @garden.description %></p>
+      <p>Price : <%= @garden.price_per_hour %> $/per hour</p>
+      <br>
+      <h3>Reviews</h3>
+      <%# <p><%= @user.review %></p>
+      <br>
+      <%= link_to 'Main menu', root_path %>
+    </div>
+    <div>
+      <%= simple_form_for [@garden, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true%>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

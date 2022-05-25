@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+
   end
 
   def create
@@ -12,6 +13,7 @@ class BookingsController < ApplicationController
       redirect_to dashboard_path
     else
       flash[:notice] = @booking.errors.full_messages.to_sentence
+
     end
   end
 

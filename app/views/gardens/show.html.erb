@@ -1,8 +1,10 @@
-<div container class="container">
+<div container class="container fullscreen_footer">
   <h1><%= @garden.title %></h1>
   <div class="d-flex">
     <div>
-      <%= image_tag 'garden_pool.png' %>
+      <% @garden.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
       <%# <p>City : <%= @garden.city %></p>
       <p>Size : <%= @garden.size %> m2</p>
       <p>Capacity : <%= @garden.capacity %>  approx/people</p>

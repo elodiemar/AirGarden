@@ -1,14 +1,25 @@
-
-<h1><%= @garden.title %></h1>
-<%# <p>City : <%= @garden.city %></p> %>
-<p>Size : <%= @garden.size %> m2</p>
-<p>Capacity : <%= @garden.capacity %>  approx/people</p>
-<p>Description : <%= @garden.description %></p>
-<p>Price : <%= @garden.price_per_hour %> $/per hour</p>
-<br>
-<h3>Reviews</h3>
-<%# <p><%= @user.review %></p> %>
-<br>
-<%= link_to 'Main menu', root_path %>
-
-<%= link_to "Book now!",  new_garden_booking_path(@garden), :class => 'btn btn-flat' %>
+<div container class="container">
+  <h1><%= @garden.title %></h1>
+  <div class="d-flex">
+    <div>
+      <%= image_tag 'garden_pool.png' %>
+      <%# <p>City : <%= @garden.city %></p>
+      <p>Size : <%= @garden.size %> m2</p>
+      <p>Capacity : <%= @garden.capacity %>  approx/people</p>
+      <p>Description : <%= @garden.description %></p>
+      <p>Price : <%= @garden.price_per_hour %> $/per hour</p>
+      <br>
+      <h3>Reviews</h3>
+      <%# <p><%= @user.review %></p>
+      <br>
+      <%= link_to 'Main menu', root_path %>
+    </div>
+    <div>
+      <%= simple_form_for [@garden, @booking] do |f| %>
+        <%= f.input :start_date, as: :date, html5: true%>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>

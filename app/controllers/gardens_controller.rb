@@ -1,12 +1,13 @@
 class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @gardens = policy_scope(Garden)
   end
 
   def show
     authorize @garden
+    @booking = Booking.new
   end
 
   def edit

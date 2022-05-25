@@ -1,0 +1,22 @@
+.home-banner {
+  background-image: asset-url("garden_pool.png");
+  background-color: rgb(14, 12, 12);
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 70px;
+}
+
+.index-banner {
+background-color: rgb(29, 117, 25);
+color: white;
+height: 200px;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+text-align: center;
+}

@@ -1,8 +1,18 @@
 
-  <div class="card-banner">
+  <div class="home-banner">
       <h1>Privatisez un jardin ou une piscine !</h1>
       <h4>Envie d'un écrin de verdure pour un anniversaire ou une réunion de famille ou simplement un apéro piscine ? </h4>
       <h4>Trouver VOTRE jardin idéal</h4>
+    <div class="d-flex justify-content-center">
+      <%= form_tag gardens_path, method: :get, class: "d-flex align-center w-50" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Recherche ton jardin idéal"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 
 <div class="container d-flex flex-wrap justify-content-between">

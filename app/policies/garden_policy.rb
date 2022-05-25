@@ -2,7 +2,6 @@ class GardenPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
-      @garden = policy_scope(garden)
     end
   end
 

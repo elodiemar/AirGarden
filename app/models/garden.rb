@@ -4,4 +4,5 @@ class Garden < ApplicationRecord
   # :address,
   # validates :address, uniqueness: true
   has_many_attached :photos
+  has_many :bookings, dependent: :destroy
 end

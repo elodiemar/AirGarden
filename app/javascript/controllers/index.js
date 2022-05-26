@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import TotalPriceController from "./total_price_controller.js"
 application.register("total-price", TotalPriceController)
+
+import MapController from "./map_controller.js"
+application.register("map", MapController)

@@ -6,12 +6,12 @@
         <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
       <%# <p>City : <%= @garden.city %></p>
-      <p>Size : <%= @garden.size %> m2</p>
-      <p>Capacity : <%= @garden.capacity %>  approx/people</p>
+      <p> Surface : <%= @garden.size %> m2</p>
+      <p> Capacité d'accueil : <%= @garden.capacity %> personnes</p>
       <p>Description : <%= @garden.description %></p>
-      <p>Price : <%= @garden.price_per_hour %> $/per hour</p>
+      <p> Prix : <%= @garden.price_per_hour %> $/par heure</p>
       <br>
-      <h3>Reviews</h3>
+      <h3>Avis d'anciens locataires</h3>
       <%# <p><%= @user.review %></p>
       <br>
       <%= link_to 'Main menu', root_path %>

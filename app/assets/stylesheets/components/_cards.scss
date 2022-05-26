@@ -4,6 +4,8 @@
   background: white;
   padding: 10px;
   width: calc(25% - 10px);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card-garden > a > img {
@@ -36,7 +38,18 @@
   align-items: flex-end;
   position: relative;
 }
-
+.card-garden-infos-dashboard {
+  display: block;
+}
 .card-garden-pricing {
 text-align: right;
+}
+
+.card-dashboard-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    max-height: 400px;
+  }
 }

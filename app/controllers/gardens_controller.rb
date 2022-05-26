@@ -3,6 +3,16 @@ class GardensController < ApplicationController
 
   def index
     @gardens = policy_scope(Garden)
+    if params[:query]
+      @gardens = @gardens.search_by_title_and_town(params[:query])
+    end
+
+    @markers = @gardens.geocoded.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude
+      }
+    end
   end
 
   def show
@@ -45,7 +55,7 @@ class GardensController < ApplicationController
   private
 
   def gardens_params
-    params.require(:garden).permit(:title, :size, :capacity, :description, :price_per_hour, photos: [])
+    params.require(:garden).permit(:title, :size, :capacity, :description, :price_per_hour, :address, :town, photos: [])
     # :address,
   end
 

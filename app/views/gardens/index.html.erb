@@ -1,4 +1,3 @@
-
 <div class="index-banner">
   <div>
       <h4 class="p-3">Trouve le jardin idéal pour ton évènement !</h4>
@@ -15,7 +14,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container fullscreen_footer">
   <div class="container d-flex flex-wrap justify-content-between">
     <% @gardens.each do |garden| %>
       <div class="card-garden">
@@ -28,8 +27,8 @@
             <p>Ville</p>
           </div>
           <div class="card-garden-right">
-            <h6>Capacity : <%= garden.capacity %></h6>
-            <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
+            <h6>Capacité d'acceuil : <%= garden.capacity %></h6>
+            <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>
           </div>
         </div>
       </div>

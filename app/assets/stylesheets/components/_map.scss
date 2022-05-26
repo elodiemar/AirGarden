@@ -1,9 +1,10 @@
 #map {
   height: 100vh!important;
   position: sticky;
-  top: 0;
   right:0;
   width: 40%!important;
+  border: 1mm ridge #e9e6e6;
+  box-shadow: 0 0 6px rgb(234, 237, 234);
 }
 
 .gardens {

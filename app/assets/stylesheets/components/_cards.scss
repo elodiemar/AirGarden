@@ -3,7 +3,7 @@
   overflow: hidden;
   background: white;
   padding: 10px;
-  width: calc(25% - 10px);
+  width: calc(35% - 40px);
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
@@ -48,8 +48,8 @@ text-align: right;
 .card-dashboard-center {
   display: flex;
   flex-direction: column;
-  align-items: center;
   img {
     max-height: 400px;
+    border-radius: 5px;
   }
 }

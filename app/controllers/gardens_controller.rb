@@ -3,6 +3,10 @@ class GardensController < ApplicationController
 
   def index
     @gardens = policy_scope(Garden)
+    if params[:query]
+      @gardens = @gardens.search_by_title_and_town(params[:query])
+    end
+
     @markers = @gardens.geocoded.map do |garden|
       {
         lat: garden.latitude,

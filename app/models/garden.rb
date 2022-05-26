@@ -8,8 +8,8 @@ class Garden < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_town,
-  against: [ :title, :town ],
+  against: [:title, :town],
   using: {
-  tsearch: { prefix: true } # <-- now `superman batm` will return something!
+  tsearch: { prefix: true }
   }
 end

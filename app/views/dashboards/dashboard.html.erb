@@ -1,7 +1,9 @@
 <div class="container fullscreen_footer">
-    <h1> Mon dashboard</h1>
-    <h2> Mes jardins</h2>
-    <div class="container flex-wrap">
+    <h1><strong>Mon Espace</strong></h1>
+    <br>
+    <h2 class="dash_titles"> Mes jardins</h2>
+    <br>
+    <div class="container d-flex flex-wrap">
       <% @gardens.each do |garden| %>
         <div class="card-garden mt-1 me-3 card-dashboard-center">
           <% if garden.photos.empty? %>
@@ -9,18 +11,18 @@
           <% else %>
             <%= cl_image_tag garden.photos.first.key%>
           <% end %>
-          <div class="card-garden-infos card-garden-infos-dashboard">
+          <div class="card-garden-infos card-garden-infos-dashboard w-100">
             <div class="card-garden-left">
               <h2><%= garden.title %></h2>
               <p><%= garden.town%></p>
             </div>
             <div class="card-garden-right">
-              <h6>Capacity : <%= garden.capacity %></h6>
+              <h6>Capacité : <%= garden.capacity %></h6>
               <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
-              <%= link_to "Edit list",  edit_garden_path(garden), :class => 'btn btn-flat my-4' %>
-              <%= link_to "Delete",
+              <%= link_to "Modifier",  edit_garden_path(garden), :class => 'btn btn-flat my-4' %>
+              <%= link_to "Supprimer",
                 garden_path(garden), :class => 'btn btn-flat',
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir supprimer ce jardin?"}
                 %>
             </div>
           </div>
@@ -31,6 +33,8 @@
   <%= link_to "add garden",  new_garden_path, class: "btn btn-flat mx-5 my-3" %>
 
   <h1> Mes reservations à venir </h1>
+
+
   <div class="container d-flex flex-wrap">
   <% @next_bookings.each do |booking| %>
       <div class="card-garden mt-1 me-3 card-dashboard-center">
@@ -45,7 +49,7 @@
             <p><%= booking.garden.town%></p>
           </div>
           <div class="card-garden-right">
-            <h6>Capacity : <%= booking.garden.capacity %></h6>
+            <h6>Capacité : <%= booking.garden.capacity %></h6>
             <h2 class="card-garden-pricing"><%= booking.garden.price_per_hour %>€ /hour</h2>
               <%= simple_form_for [booking.garden, @review] do |f| %>
                 <%= f.input :content, label: "Commentaire :"%>
@@ -53,6 +57,10 @@
                 <%= f.submit "Notez votre hôte", class: "btn btn-flat" %>
               <% end %>
           </div>
+          <%= link_to "Demande d'annulation",
+                garden_booking_path(booking.garden, booking), :class => 'btn btn-flat',
+                data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir annuler cette réservation?"}
+                %>
         </div>
       </div>
     <% end %>

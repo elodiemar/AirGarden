@@ -16,11 +16,12 @@
       <br>
       <%= link_to 'Main menu', root_path %>
     </div>
-    <div>
+    <div data-controller="total-price" data-action="change->total-price#updateprice" data-total-price-pph-value="<%= @garden.price_per_hour %>">
       <%= simple_form_for [@garden, @booking] do |f| %>
-        <%= f.input :start_date, as: :date, html5: true%>
-        <%= f.input :end_date, as: :date, html5: true %>
-        <%= f.submit %>
+        <%= f.input :start_date, as: :datetime, html5: true, input_html: {data: {total_price_target: "startdate"}}, :label => "Début"%>
+        <%= f.input :end_date, as: :datetime, html5: true, input_html: {data: {total_price_target: "enddate"}}, :label => "Fin"%>
+        <p data-total-price-target = "totalprice"></p>
+        <%= f.submit 'Réserver', class: " btn btn-flat" %>
       <% end %>
     </div>
   </div>

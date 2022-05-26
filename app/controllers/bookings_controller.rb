@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+
   end
 
   def create
@@ -17,6 +18,7 @@ class BookingsController < ApplicationController
     else
       render "gardens/show"
       flash[:notice] = @booking.errors.full_messages.to_sentence
+
     end
   end
 

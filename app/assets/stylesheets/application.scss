@@ -14,3 +14,11 @@
 @import "pages/home";
 @import "components/footer";
 @import "components/button_green";
+
+// police
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+h1, h2, h3, h4, p, a {
+  font-family: 'Roboto', sans-serif;
+}

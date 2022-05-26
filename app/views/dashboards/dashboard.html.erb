@@ -1,9 +1,7 @@
-<h1> Mon dashboard</h1>
-
-<h2> Mes jardins</h2>
-
-
-<div class="container d-flex flex-wrap">
+<div class="container fullscreen_footer">
+  <h1> Mon dashboard</h1>
+  <h2> Mes jardins</h2>
+  <div class="container d-flex flex-wrap">
   <% @gardens.each do |garden| %>
     <div class="card-garden mt-1 me-3 card-dashboard-center">
       <% if garden.photos.empty? %>
@@ -14,7 +12,7 @@
       <div class="card-garden-infos card-garden-infos-dashboard">
         <div class="card-garden-left">
           <h2><%= garden.title %></h2>
-          <p>Ville</p>
+          <p>garden.town</p>
         </div>
         <div class="card-garden-right">
           <h6>Capacity : <%= garden.capacity %></h6>
@@ -26,9 +24,8 @@
         %>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
 <%= link_to "add garden",  new_garden_path, class: "btn btn-flat mx-5 my-3" %>
 

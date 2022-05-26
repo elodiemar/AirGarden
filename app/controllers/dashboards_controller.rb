@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
     @bookings = current_user.bookings
     authorize :dashboard, :dashboard?
     @review = Review.new
+    authorize @review
     # il va chercher dans le dashboard policy chercher la methode dashboard
   end
 end

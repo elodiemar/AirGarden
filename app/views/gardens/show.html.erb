@@ -13,7 +13,7 @@
       <br>
 
       <br>
-      <%= link_to 'Main menu', root_path %>
+      <%= link_to 'Main menu', root_path, class: "btn btn-flat" %>
     </div>
     <div data-controller="total-price" data-action="change->total-price#updateprice" data-total-price-pph-value="<%= @garden.price_per_hour %>">
       <%= simple_form_for [@garden, @booking] do |f| %>
@@ -23,7 +23,9 @@
         <%= f.submit 'Réserver', class: " btn btn-flat" %>
       <% end %>
     </div>
-
+  </div>
+  <div>
+  <br>
     <h3>Avis d'anciens locataires</h3>
     <ul class="list-group">
       <% @garden.reviews.each do |review| %>

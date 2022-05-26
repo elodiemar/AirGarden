@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @garden = Garden.find(params[:garden_id])
     @review.garden = @garden
-    if @review.save
+    if @review.save!
       redirect_to garden_path(@garden)
     else
       render "gardens/show", status: :unprocessable_entity

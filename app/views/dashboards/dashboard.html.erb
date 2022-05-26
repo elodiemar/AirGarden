@@ -51,6 +51,11 @@
           <div class="card-garden-right">
             <h6>Capacité : <%= booking.garden.capacity %></h6>
             <h2 class="card-garden-pricing"><%= booking.garden.price_per_hour %>€ /hour</h2>
+            <% if booking.status %>
+              <p>Status : Validée</p>
+            <% else %>
+              <p>Status : En attente</p>
+            <% end %>
           </div>
           <%= link_to "Demande d'annulation",
                 garden_booking_path(booking.garden, booking), :class => 'btn btn-flat',

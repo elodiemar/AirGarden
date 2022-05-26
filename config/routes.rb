@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :gardens do
     resources :bookings, only: [:new , :create, :update, :edit, :show]
+    resources :reviews, only: [:create]
   end
   get '/dashboard', to: 'dashboards#dashboard'
 

@@ -1,29 +1,29 @@
-<h1> Mon dashboard</h1>
+<div class="container fullscreen_footer">
+  <h1> Mon dashboard</h1>
+  <h2> Mes jardins</h2>
 
-<h2> Mes jardins</h2>
-
-
-<div class="container d-flex flex-wrap">
-  <% @gardens.each do |garden| %>
-    <div class="card-garden mt-1 me-3">
-      <%= image_tag "garden_one" %>
-      <div class="card-garden-infos">
-        <div class="card-garden-left">
-          <h2><%= garden.title %></h2>
-          <p>Ville</p>
-          <%= link_to "Edit list",  edit_garden_path(garden), :class => 'btn btn-flat my-4' %>
-          <%= link_to "Delete",
-        garden_path(garden), :class => 'btn btn-flat',
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-        %>
-        </div>
-        <div class="card-garden-right">
-          <h6>Capacity : <%= garden.capacity %></h6>
-          <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
+  <div class="container d-flex flex-wrap">
+    <% @gardens.each do |garden| %>
+      <div class="card-garden mt-1 me-3">
+        <%= image_tag "garden_one" %>
+        <div class="card-garden-infos">
+          <div class="card-garden-left">
+            <h2><%= garden.title %></h2>
+            <p> <%= garden.town %></p>
+            <%= link_to "Edit list",  edit_garden_path(garden), :class => 'btn btn-flat my-4' %>
+            <%= link_to "Delete",
+          garden_path(garden), :class => 'btn btn-flat',
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+          </div>
+          <div class="card-garden-right">
+            <p>Capacité : <%= garden.capacity %></p>
+            <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<%= link_to "add garden",  new_garden_path, class: "btn btn-flat mx-5 my-3" %>
+  <%= link_to "add garden",  new_garden_path, class: "btn btn-flat mx-5 my-3" %>
+</div>

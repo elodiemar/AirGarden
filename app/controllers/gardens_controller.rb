@@ -51,7 +51,7 @@ class GardensController < ApplicationController
   private
 
   def gardens_params
-    params.require(:garden).permit(:title, :size, :capacity, :description, :price_per_hour, photos: [])
+    params.require(:garden).permit(:title, :size, :capacity, :description, :price_per_hour, :address, :town, photos: [])
     # :address,
   end
 

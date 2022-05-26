@@ -9,7 +9,7 @@
         <div class="card-garden-infos">
           <div class="card-garden-left">
             <h2><%= garden.title %></h2>
-            <p>Ville</p>
+            <p> <%= garden.town %></p>
             <%= link_to "Edit list",  edit_garden_path(garden), :class => 'btn btn-flat my-4' %>
             <%= link_to "Delete",
           garden_path(garden), :class => 'btn btn-flat',
@@ -17,7 +17,7 @@
           %>
           </div>
           <div class="card-garden-right">
-            <h6>Capacity : <%= garden.capacity %></h6>
+            <p>Capacité : <%= garden.capacity %></p>
             <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
           </div>
         </div>

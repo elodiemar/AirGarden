@@ -19,6 +19,7 @@ class GardensController < ApplicationController
   def show
     authorize @garden
     @booking = Booking.new
+
   end
 
   def edit

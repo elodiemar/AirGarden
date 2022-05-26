@@ -14,24 +14,37 @@
   </div>
 </div>
 
-<div class="container fullscreen_footer">
-  <div class="container d-flex flex-wrap justify-content-between">
-    <% @gardens.each do |garden| %>
-      <div class="card-garden">
-        <%= link_to garden_path(garden) do %>
-          <%= image_tag "garden_one" %>
-        <% end %>
-        <div class="card-garden-infos">
-          <div class="card-garden-left">
-            <h2><%= garden.title %></h2>
-            <p>Ville</p>
-          </div>
-          <div class="card-garden-right">
-            <h6>Capacité d'acceuil : <%= garden.capacity %></h6>
-            <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>
+
+<div class="d-flex flex-wrap justify-content-between fullscreen_footer">
+    <div class="gardens">
+      <% @gardens.each do |garden| %>
+        <div class="card-garden">
+          <%= link_to garden_path(garden) do %>
+          <% if garden.photos.empty? %>
+            <%= image_tag "garden_one" %>
+            <% else %>
+            <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
+            <% end %>
+          <% end %>
+          <div class="card-garden-infos">
+            <div class="card-garden-left">
+              <h2><%= garden.title %></h2>
+              <p>Ville</p>
+            </div>
+            <div class="card-garden-right">
+              <h6>Capacité : <%= garden.capacity %></h6>
+              <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+    <%# <img id="map" src='pk.eyJ1IjoibGlkd2luZSIsImEiOiJjbDNscG81YmgwdmFwM2VvN3o5ZjFjNnFvIn0.yeFAi79t-KnH-g_FG1T6AA'> %>
+    <%# style="width: 100%; height: 600px;" %>
+    <div style="width: 100%; height: 600px"
+      id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
 </div>

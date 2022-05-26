@@ -1,0 +1,19 @@
+#map {
+  height: 100vh!important;
+  position: sticky;
+  top: 0;
+  right:0;
+  width: 40%!important;
+}
+
+.gardens {
+  width: 60% !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .card-garden {
+    width: calc(30% - 10px);
+
+}
+}

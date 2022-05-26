@@ -3,10 +3,9 @@ class GardensController < ApplicationController
 
   def index
     @gardens = policy_scope(Garden)
-    if params[:query]
+
+    if params[:query].present?
       @gardens = @gardens.search_by_title_and_town(params[:query])
-    else
-      @gardens = Garden.all
     end
 
     @markers = @gardens.geocoded.map do |garden|

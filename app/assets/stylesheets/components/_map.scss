@@ -1,19 +1,22 @@
 #map {
   height: 100vh!important;
   position: sticky;
-  top: 0;
-  right:0;
+  right: 20px;
   width: 40%!important;
+  border: 2mm solid rgb(246, 250, 246);
+  box-shadow: 0 0 5px rgb(77, 79, 77);
+  margin-top: 40px;
 }
 
 .gardens {
   width: 60% !important;
+  height: 300px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 
   .card-garden {
-    width: calc(30% - 10px);
+    width: calc(35% - 10px);
 
 }
 }

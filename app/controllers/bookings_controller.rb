@@ -1,21 +1,27 @@
 class BookingsController < ApplicationController
-  before_action :booking, only: :destroy
+  before_action :set_booking, only: [:destroy, :show]
 
   def new
     @booking = Booking.new
   end
 
   def create
-    @garden.user = current_user
+    @garden = Garden.find(params[:garden_id])
+    authorize @garden
     @booking = Booking.new(booking_params)
+    authorize @booking
+    @booking.user = current_user
+    @booking.garden = @garden
     if @booking.save!
-      redirect_to dashboard_path
+      redirect_to garden_booking_path(@garden, @booking)
     else
+      render "gardens/show"
       flash[:notice] = @booking.errors.full_messages.to_sentence
     end
   end
 
   def show
+    authorize @booking
   end
 
   def destroy
@@ -32,5 +38,4 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:id])
   end
-
 end

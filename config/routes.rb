@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :gardens do
-    resources :booking, only: [:new , :create, :update, :edit]
+    resources :bookings, only: [:new , :create, :update, :edit, :show]
   end
   get '/dashboard', to: 'dashboards#dashboard'
 

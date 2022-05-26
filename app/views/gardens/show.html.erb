@@ -11,8 +11,7 @@
       <p>Description : <%= @garden.description %></p>
       <p> Prix : <%= @garden.price_per_hour %> €/par heure</p>
       <br>
-      <h3>Avis d'anciens locataires</h3>
-      <%# <p><%= @user.review %></p>
+
       <br>
       <%= link_to 'Main menu', root_path %>
     </div>
@@ -24,5 +23,12 @@
         <%= f.submit 'Réserver', class: " btn btn-flat" %>
       <% end %>
     </div>
+
+    <h3>Avis d'anciens locataires</h3>
+    <ul class="list-group">
+      <% @garden.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.content %></li>
+      <% end %>
+    </ul>
   </div>
 </div>

@@ -8,7 +8,7 @@
       <%# <p>City : <%= @garden.city %></p>
       <p> Surface : <%= @garden.size %> m2</p>
       <p> Capacité d'accueil : <%= @garden.capacity %> personnes</p>
-      <p>Description : <%= @garden.description %></p>
+      <p> Description : <%= @garden.description %></p>
       <p> Prix : <%= @garden.price_per_hour %> €/par heure</p>
       <br>
       <h3>Avis d'anciens locataires</h3>
@@ -20,7 +20,7 @@
       <%= simple_form_for [@garden, @booking] do |f| %>
         <%= f.input :start_date, as: :datetime, html5: true, input_html: {data: {total_price_target: "startdate"}}, :label => "Début"%>
         <%= f.input :end_date, as: :datetime, html5: true, input_html: {data: {total_price_target: "enddate"}}, :label => "Fin"%>
-        <p data-total-price-target = "totalprice"></p>
+        <p data-total-price-target = "Prix total"></p>
         <%= f.submit 'Réserver', class: " btn btn-flat" %>
       <% end %>
     </div>

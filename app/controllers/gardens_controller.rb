@@ -5,6 +5,8 @@ class GardensController < ApplicationController
     @gardens = policy_scope(Garden)
     if params[:query]
       @gardens = @gardens.search_by_title_and_town(params[:query])
+    else
+      @gardens = Garden.all
     end
 
     @markers = @gardens.geocoded.map do |garden|
@@ -62,4 +64,5 @@ class GardensController < ApplicationController
   def set_garden
     @garden = Garden.find(params[:id])
   end
+
 end

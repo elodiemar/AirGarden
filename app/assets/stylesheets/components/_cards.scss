@@ -36,7 +36,18 @@
   align-items: flex-end;
   position: relative;
 }
-
+.card-garden-infos-dashboard {
+  display: block;
+}
 .card-garden-pricing {
 text-align: right;
+}
+
+.card-dashboard-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    max-height: 400px;
+  }
 }

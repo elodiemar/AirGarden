@@ -1,4 +1,10 @@
-<h1> felication votre reservation a bien été prise en compte</h1>
+<div class="container">
+  <h1> felication votre reservation a bien été prise en compte</h1>
 
-<%= @booking.garden.title %>
-<p> Du <%= @booking.start_date %> au <%= @booking.end_date %> </p>
+  <% @booking.garden.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %> <br>
+  <%= @booking.garden.title %>
+
+  <p> Du <%= @booking.start_date %> au <%= @booking.end_date %> </p>
+</div>

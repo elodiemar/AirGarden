@@ -14,11 +14,8 @@ export default class extends Controller {
      const enddate = Date.parse(this.enddateTarget.value)
      const startdate = Date.parse(this.startdateTarget.value)
      const duration = (enddate - startdate)/3600000
-     const totalprice = duration * this.pphValue
-
-     this.totalpriceTarget.innerHTML = `Prix Total : ${totalprice } €`
-     console.log(duration)
-     console.log(totalprice)
+     const totalprice = Math.ceil(duration) * this.pphValue
+     this.totalpriceTarget.innerHTML = `Total : ${totalprice} €`
     }
   }
 }

@@ -3,5 +3,8 @@ class AddTotalPriceToBookings < ActiveRecord::Migration[7.0]
     add_column :bookings, :total_price, :integer
   end
 end
+<<<<<<< HEAD
 
 db/migrate/20220526160659_change_date_to_date_time_for_start_and_end_date.rb
+=======
+>>>>>>> master

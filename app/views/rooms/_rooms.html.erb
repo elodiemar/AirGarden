@@ -1,13 +1,7 @@
-<div class="mb-3">
-  <%= link_to new_garden_booking_room_path(booking.id, booking.room.id), class: 'btn btn-flat' do %>
-    Create a room
-  <% end %>
-</div>
-
 <% if @rooms.present? %>
   <nav class="nav flex-column">
     <% @rooms.each do |room| %>
-      <%= link_to room.name, garden_booking_room_path(room), class: 'nav-link room-nav-link' %>
+      <%= link_to "votre conversation", garden_booking_room_path(room), class: 'nav-link room-nav-link' %>
     <% end %>
   </nav>
 <% else %>

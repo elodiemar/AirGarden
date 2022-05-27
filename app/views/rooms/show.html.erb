@@ -33,7 +33,7 @@
       <% end %>
     </div>
 
-    <%= simple_form_for @room_message, remote: true do |form| %>
+    <%= simple_form_for @room_message, remote: true, method: :post do |form| %>
       <div class="input-group mb-3">
         <%= form.input :message, as: :string,
                                  wrapper: false,

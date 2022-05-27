@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   resources :gardens do
     resources :bookings, only: [:new , :create, :update, :edit, :show, :destroy] do
       resources :rooms
-      resources :room_messages
     end
     resources :reviews, only: [:create]
   end
   get '/dashboard', to: 'dashboards#dashboard'
+  resources :room_messages
 
   # Defines the root path route ("/")
   # root "articles#index"

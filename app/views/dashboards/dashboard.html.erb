@@ -14,6 +14,7 @@
           <% else %>
             <%= cl_image_tag garden.photos.first.key%>
           <% end %>
+
           <div class="card-garden-infos card-garden-infos-dashboard w-100">
             <div class="card-garden-left px-3">
               <h2><%= garden.title %></h2>
@@ -21,13 +22,14 @@
             </div>
             <div class="card-garden-right px-3">
               <h6>Capacité : <%= garden.capacity %></h6>
-              <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
+              <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>
               <%= link_to "Modifier",  edit_garden_path(garden), :class => 'btn btn-flat my-4' %>
               <br>
               <%= link_to "Supprimer",
                 garden_path(garden), :class => 'btn btn-flat',
                 data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir supprimer ce jardin?"}%>
             </div>
+
           </div>
         </div>
       <% end %>

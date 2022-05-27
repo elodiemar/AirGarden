@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Connexion super</h2>
+  <h2>Connectez-vous à votre espace personnel</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
     <div class="form-inputs">
@@ -14,8 +14,8 @@
       <%= f.input :remember_me, label: 'se souvenir de moi', as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Connexion" %>
+    <div class="form-actions btn-flat-connexion">
+      <%= f.button :submit, "Connexion"%>
     </div>
   <% end %>
 

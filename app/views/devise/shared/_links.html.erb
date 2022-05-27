@@ -23,4 +23,5 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <%= link_to "Connectez vous avec #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
   <% end %>
+<% end %>
 </div>

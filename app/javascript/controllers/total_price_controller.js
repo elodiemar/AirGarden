@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="total-price"
 export default class extends Controller {
-  static targets = [ "startdate", "enddate", "totalprice" ]
+  static targets = [ "startdate", "enddate", "total" ]
   static values = { pph: Number }
 
   connect() {
@@ -15,7 +15,7 @@ export default class extends Controller {
      const startdate = Date.parse(this.startdateTarget.value)
      const duration = (enddate - startdate)/3600000
      const totalprice = Math.ceil(duration) * this.pphValue
-     this.totalpriceTarget.innerHTML = `Total : ${totalprice} €`
+     this.totalTarget.innerHTML = `Total : ${totalprice} €`
     }
   }
 }

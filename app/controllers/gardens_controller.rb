@@ -41,6 +41,7 @@ class GardensController < ApplicationController
     @garden = Garden.new(gardens_params)
     @garden.user = current_user
     authorize @garden
+    @garden.town = @garden.town.capitalize
     if @garden.save
       redirect_to garden_path(@garden)
     else

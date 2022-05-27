@@ -7,6 +7,8 @@ class DashboardsController < ApplicationController
     authorize :dashboard, :dashboard?
     @review = Review.new
     authorize @review
+    @room = Room.new
+    authorize @room
     # il va chercher dans le dashboard policy chercher la methode dashboard
   end
 end

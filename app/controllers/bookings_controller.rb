@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
     @booking.garden = @garden
     if @booking.save!
       redirect_to garden_booking_path(@garden, @booking)
+      @room = Room.create(booking_id: @booking.id)
     else
       render "gardens/show"
       flash[:notice] = @booking.errors.full_messages.to_sentence

@@ -17,7 +17,7 @@
               <h2><%= garden.title %></h2>
               <p><%= garden.town%></p>
             </div>
-            <div class="card-garden-right px-3">
+            <div class="card-garden-right">
               <h6>Capacité : <%= garden.capacity %></h6>
               <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /hour</h2>
               <%= link_to "Modifier",  edit_garden_path(garden), :class => 'btn btn-flat my-4' %>
@@ -61,6 +61,8 @@
     <% end %>
   </div>
 
+
+
   <h1> Mes reservations passées</h1>
   <div class="container d-flex flex-wrap">
   <% @past_bookings.each do |booking| %>
@@ -89,3 +91,10 @@
     <% end %>
     </div>
 </div>
+
+<% @bookings.each do |booking| %>
+  <%= link_to "contacter le propriétaire", garden_booking_room_path(booking.id, booking.room.id, booking.room.id) %>
+<% end %>
+<h1>
+
+</h1>

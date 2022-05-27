@@ -1,11 +1,11 @@
 <%= simple_form_for(garden) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :size %>
-  <%= f.input :capacity %>
-  <%= f.input :description %>
-  <%= f.input :price_per_hour %>
-  <%= f.input :address %>
-  <%= f.input :town %>
+  <%= f.input :title, label: "Nom"%>
+  <%= f.input :size, label: "Taille du jardin" %>
+  <%= f.input :capacity, label: "Nombre de personnes" %>
+  <%= f.input :description, label: "Description"  %>
+  <%= f.input :price_per_hour, label: "Prix par heure" %>
+  <%= f.input :address, label: "Adresse (rue, avenue, ...)"  %>
+  <%= f.input :town, label: "Ville"  %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
+  <%= f.submit "Créer mon jardin" %>
 <% end %>

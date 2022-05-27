@@ -8,7 +8,8 @@
       </div>
       <br>
       <% bookings = Booking.select{ |booking| booking.garden == garden } %>
-      <% bookings.each do |booking| %>
+      <% pendingbookings = bookings.select{ |booking| booking.status == false }  %>
+      <% pendingbookings.each do |booking| %>
         <% if booking.status == false %>
           <div>
             <p> Réservation du <%= booking.created_at.to_date %> </p>

@@ -1,10 +1,6 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: [:show]
 
-  def index
-    @rooms = policy_scope(Room)
-    @rooms = Room.all
-  end
 
   def show
     authorize @room

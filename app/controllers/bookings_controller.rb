@@ -29,6 +29,7 @@ class BookingsController < ApplicationController
     # show booking status in user dashboard
     if @booking.save!
       redirect_to garden_booking_path(@garden, @booking), notice: "Demande de réservation transmise au propriétaire"
+      @room = Room.create(booking_id: @booking.id)
     else
       render "gardens/show"
       flash[:notice] = @booking.errors.full_messages.to_sentence

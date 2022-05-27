@@ -29,7 +29,7 @@
           <div class="card-garden-infos">
             <div class="card-garden-left">
               <h2><%= garden.title %></h2>
-              <p>Ville</p>
+              <p><%= garden.town %></p>
             </div>
             <div class="card-garden-right">
               <h6>Capacité : <%= garden.capacity %></h6>
@@ -39,8 +39,6 @@
         </div>
       <% end %>
     </div>
-    <%# <img id="map" src='pk.eyJ1IjoibGlkd2luZSIsImEiOiJjbDNscG81YmgwdmFwM2VvN3o5ZjFjNnFvIn0.yeFAi79t-KnH-g_FG1T6AA'> %>
-    <%# style="width: 100%; height: 600px;" %>
     <div style="width: 100%; height: 600px"
       id="map"
       data-controller="map"

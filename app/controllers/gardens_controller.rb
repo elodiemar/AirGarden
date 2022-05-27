@@ -3,7 +3,8 @@ class GardensController < ApplicationController
 
   def index
     @gardens = policy_scope(Garden)
-    if params[:query]
+
+    if params[:query].present?
       @gardens = @gardens.search_by_title_and_town(params[:query])
     end
 
@@ -18,6 +19,7 @@ class GardensController < ApplicationController
   def show
     authorize @garden
     @booking = Booking.new
+
   end
 
   def edit
@@ -62,4 +64,5 @@ class GardensController < ApplicationController
   def set_garden
     @garden = Garden.find(params[:id])
   end
+
 end

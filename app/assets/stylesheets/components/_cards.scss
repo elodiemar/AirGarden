@@ -2,11 +2,12 @@
   margin-top: 40px;
   overflow: hidden;
   background: white;
-  padding: 10px;
   width: calc(25% - 10px);
-  border-radius: 10px;
+  border-radius: 7px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding-bottom: 10px;
 }
+
 
 .card-garden > a > img {
   height: 200px;
@@ -17,12 +18,10 @@
 .card-garden h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
 }
 
 .card-garden h6 {
   font-size: 14px;
-  margin: 0;
 }
 
 .card-garden p {
@@ -32,7 +31,6 @@
 
 
 .card-garden-infos {
-  padding: 13px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -40,16 +38,25 @@
 }
 .card-garden-infos-dashboard {
   display: block;
+  padding: 15px;
 }
 .card-garden-pricing {
 text-align: right;
 }
 
 .card-dashboard-center {
+  margin-top: 40px;
+  overflow: hidden;
+  justify-content: space-between;
+  background: white;
+  width: calc(30% - 10px);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 20px;
   img {
-    max-height: 400px;
+    max-height: 360px;
   }
 }

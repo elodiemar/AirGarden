@@ -63,11 +63,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_160659) do
     t.integer "price_per_hour"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.string "address"
     t.string "town"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_gardens_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "garden_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["garden_id"], name: "index_reviews_on_garden_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -89,4 +98,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_26_160659) do
   add_foreign_key "bookings", "gardens"
   add_foreign_key "bookings", "users"
   add_foreign_key "gardens", "users"
+  add_foreign_key "reviews", "gardens"
 end

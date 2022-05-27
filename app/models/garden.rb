@@ -5,8 +5,9 @@ class Garden < ApplicationRecord
   # validates :address, uniqueness: true
   has_many_attached :photos
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
-  geocoded_by :address
+  geocoded_by :town
   after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch::Model
@@ -15,5 +16,4 @@ class Garden < ApplicationRecord
   using: {
   tsearch: { prefix: true }
   }
-
 end

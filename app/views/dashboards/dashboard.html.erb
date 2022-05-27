@@ -71,13 +71,13 @@
               <p>Status : En attente</p>
             <% end %>
           </div>
-             <p> <br> <%= link_to "contacter le propriétaire", garden_booking_room_path(booking.id, booking.room.id, booking.room.id),  :class => 'btn btn-flat w-100' %> </p>
+          <p> <br> <%= link_to "contacter le propriétaire", garden_booking_room_path(booking.id, booking.room.id, booking.room.id),  :class => 'btn btn-flat w-100' %> </p>
           <div class="d-flex justify-content-center">
             <%= link_to "Demande d'annulation",
                 garden_booking_path(booking.garden, booking), :class => 'btn btn-flat w-100',
                 data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir annuler cette réservation?"}
                 %>
-
+          </div>
         </div>
       </div>
     <% end %>

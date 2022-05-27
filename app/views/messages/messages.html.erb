@@ -1,0 +1,37 @@
+<div class="container fullscreen_footer">
+  <h1>Messages</h1>
+
+  <div class="container">
+    <% @gardens.each do |garden| %>
+      <div>
+        <h2>Demandes de réservations reçues pour <%= garden.title %></h2>
+      </div>
+      <br>
+      <% bookings = Booking.select{ |booking| booking.garden == garden } %>
+      <% pendingbookings = bookings.select{ |booking| booking.status == false }  %>
+      <% pendingbookings.each do |booking| %>
+        <% if booking.status == false %>
+          <div>
+            <p> Réservation du <%= booking.created_at.to_date %> </p>
+            <p> <%= booking.user.first_name %> souhaite réserver <%= garden.title %> </p>
+            <p> Du <%= booking.start_date %> au <%= booking.end_date %></p>
+            <% if booking.total_price.nil? %>
+              <p class = "text-danger"> Attention réservation sans prix </p>
+            <% else %>
+              <p> Total : <%= booking.total_price %> €</p>
+            <% end %>
+          </div>
+          <div class="d-flex flex-wrap" >
+            <button class = "btn btn-flat m-2"  >
+              <%= link_to "Accepter", garden_booking_path(garden, booking), data: {turbo_method: :patch,  turbo_confirm: " Confirmer cette réservation ?"}%>
+            </button>
+            <%# la mise a jour du statut de la reservation ne fonctionne pas, corriger la redirection %>
+            <button class = "btn btn-flat m-2"  >
+              <%= link_to "Refuser", garden_booking_path(garden, booking), data: {turbo_method: :delete,  turbo_confirm: " Supprimer définitivement la demande de réservation ?"}%>
+            </button>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -65,6 +65,11 @@
           <div class="card-garden-right px-3">
             <h6>Capacité : <%= booking.garden.capacity %></h6>
             <h2 class="card-garden-pricing"><%= booking.garden.price_per_hour %>€ /heure</h2>
+            <% if booking.status %>
+              <p>Status : Validée</p>
+            <% else %>
+              <p>Status : En attente</p>
+            <% end %>
           </div>
              <p> <br> <%= link_to "contacter le propriétaire", garden_booking_room_path(booking.id, booking.room.id, booking.room.id),  :class => 'btn btn-flat w-100' %> </p>
           <div class="d-flex justify-content-center">

@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_27_090830) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "total_price"
+    t.boolean "status"
     t.index ["garden_id"], name: "index_bookings_on_garden_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

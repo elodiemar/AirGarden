@@ -16,7 +16,7 @@
 
 <div class="container d-flex flex-wrap justify-content-between">
   <% @gardens.last(12).each do |garden| %>
-    <div class="card-garden">
+    <div class="card-garden ">
       <%= link_to garden_path(garden) do %>
       <% if garden.photos.empty? %>
         <%= image_tag "garden_one" %>
@@ -24,12 +24,12 @@
         <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
         <% end %>
       <% end %>
-      <div class="card-garden-infos">
-        <div class="card-garden-left">
+      <div class="card-garden-infos mt-3">
+        <div class="card-garden-left px-2">
           <h2><%= garden.title %></h2>
           <p><%= garden.town %></p>
         </div>
-        <div class="card-garden-right">
+        <div class="card-garden-right px-3">
 
           <h6>Capacité : <%= garden.capacity %></h6>
           <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>

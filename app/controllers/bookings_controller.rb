@@ -27,8 +27,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    authorize @booking
     @booking.destroy
-    redirect_to dashboard_path
+    redirect_to dashboard_path, notice: "La demande d'annulation à bien été transmise au propriétaire"
   end
 
   private

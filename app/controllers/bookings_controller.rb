@@ -52,7 +52,6 @@ class BookingsController < ApplicationController
       render "messages/messages"
       flash[:notice] = @booking.errors.full_messages.to_sentence
     end
-    redirect_to messages_path
   end
 
   def destroy

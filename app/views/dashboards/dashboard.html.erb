@@ -1,7 +1,9 @@
 <div class="container fullscreen_footer">
     <h1><strong>Mon Espace</strong></h1>
     <br>
+    <br>
     <h2 class="dash_titles"> Mes jardins</h2>
+    <br>
     <br>
     <div class="container d-flex flex-wrap">
       <% @gardens.each do |garden| %>
@@ -29,12 +31,17 @@
         </div>
       <% end %>
     </div>
+    <br>
+    <br>
 
   <div class="btn-wrapper">
     <%= link_to "Ajouter un jardin",  new_garden_path, class: "btn btn-flat mx-5 my-3 btn-add" %>
   </div>
+  <br>
+  <br>
 
   <h2 class="dash_titles">Mes réservations</h2>
+  <br>
   <br>
   <div class="container d-flex flex-wrap">
     <% @bookings.each do |booking| %>

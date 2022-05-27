@@ -3,7 +3,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-
   end
 
   def create
@@ -13,13 +12,16 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.user = current_user
     @booking.garden = @garden
+    # save total price in booking
+    duration = ((@booking.end_date - @booking.start_date) / 3_600).ceil
+    @booking.total_price = @garden.price_per_hour * duration
     if @booking.save!
       redirect_to garden_booking_path(@garden, @booking)
     else
       render "gardens/show"
       flash[:notice] = @booking.errors.full_messages.to_sentence
-
     end
+
   end
 
   def show
@@ -29,7 +31,7 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.destroy
-    redirect_to dashboard_path, notice: "La demande d annulation a bien ete transmise au proprietaire"
+    redirect_to dashboard_path, notice: "La demande d'annulation à bien été transmise au propriétaire"
   end
 
   private

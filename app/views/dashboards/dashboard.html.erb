@@ -1,54 +1,46 @@
 <div class="container fullscreen_footer">
-    <h1><strong>Mon Espace</strong></h1>
-    <br>
-    <br>
-    <h2 class="dash_titles"> Mes jardins</h2>
-    <br>
-    <br>
+  <h1><strong>Mon Espace</strong></h1>
+  <h2 class="dash_titles"> Mes jardins</h2>
 
-    <div class="container d-flex flex-wrap">
+  <div class="garden-container">
+    <div class="cards">
       <% @gardens.each do |garden| %>
-        <div class="card-dashboard-center">
+        <div class="card-garden">
           <% if garden.photos.empty? %>
-            <%= image_tag "garden_one" %>
+            <%= image_tag "garden_one", class:"img-garden" %>
           <% else %>
-            <%= cl_image_tag garden.photos.first.key %>
+            <%= cl_image_tag garden.photos.first.key, class:"img-garden" %>
           <% end %>
-
-          <div class="card-garden-infos card-garden-infos-dashboard w-100">
-            <div class="card-garden-left px-3">
-              <h3><%= garden.title %></h3>
-              <p><%= garden.town%></p>
-            </div>
-            <div class="card-garden-right">
-              <p>Capacité : <%= garden.capacity %></p>
-              <p class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</p>
-              <div class="d-flex justify-content-between">
-                <%= link_to "Modifier",  edit_garden_path(garden), :class => 'btn btn-flat mx-1' %>
-                <br>
-                <%= link_to "Supprimer",
-                  garden_path(garden), :class => 'btn btn-flat',
-                  data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir supprimer ce jardin?"}%>
-              </div>
-            </div>
-
+          <h3 class="text-center my-2"><%= garden.title %></h3>
+          <div class="d-flex justify-content-between mx-1">
+            <p>Capacité : <%= garden.capacity %></p>
+            <%= link_to  edit_garden_path(garden) do %>
+              <i class="fa-solid fa-pen-to-square mx-2"></i>
+            <% end %>
+          </div>
+          <div class="d-flex justify-content-between mx-1">
+            <p class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</p>
+            <%= link_to garden_path(garden), data: {turbo_method: :delete, turbo_confirm: "Veux-tu supprimer ce jardin ?"} do %>
+              <i class="fa-solid fa-trash card-project-trash mx-2"></i>
+            <% end %>
           </div>
         </div>
       <% end %>
+
       <div class="card-dashboard-center card-add-garden">
-          <%= link_to "+",  new_garden_path, class: "btn btn-flat btn-add btn-add-in-card" %>
+        <%= link_to "+",  new_garden_path, class: "btn btn-flat btn-add btn-add-in-card" %>
       </div>
     </div>
+  </div>
 
-  <h2 class="dash_titles mt-5"> Mes réservations à venir </h2>
-
+  <h2 class="dash_titles mt-4"> Mes réservations à venir </h2>
   <div class="container d-flex flex-wrap">
   <% @next_bookings.each do |booking| %>
       <div class="card-dashboard-center">
         <% if booking.garden.photos.empty? %>
-          <%= image_tag "garden_one" %>
+          <%= image_tag "garden_one", class:"img-garden" %>
           <% else %>
-          <%= cl_image_tag booking.garden.photos.first.key%>
+          <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
           <% end %>
         <div class="card-garden-infos card-garden-infos-dashboard w-100">
           <div class="card-garden-left px-3">
@@ -56,20 +48,20 @@
             <p><%= booking.garden.town%></p>
           </div>
           <div class="card-garden-right px-3">
-            <h6>Capacité : <%= booking.garden.capacity %></h6>
-            <h2 class="card-garden-pricing"><%= booking.garden.price_per_hour %>€ /heure</h2>
+            <p>Capacité : <%= booking.garden.capacity %></p>
+            <p class="card-garden-pricing"><%= booking.garden.price_per_hour %>€ /heure</p>
             <% if booking.status %>
               <p>Status : Validée</p>
             <% else %>
               <p>Status : En attente</p>
             <% end %>
           </div>
-          <p> <br> <%= link_to "contacter le propriétaire", garden_booking_room_path(booking.id, booking.room.id, booking.room.id),  :class => 'btn btn-flat w-100' %> </p>
+          <p class="mt-5"> <%= link_to "contacter le propriétaire", garden_booking_room_path(booking.id, booking.room.id, booking.room.id),  :class => 'btn btn-flat w-100' %> </p>
           <div class="d-flex justify-content-center">
             <%= link_to "Demande d'annulation",
-                garden_booking_path(booking.garden, booking), :class => 'btn btn-flat w-100',
-                data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir annuler cette réservation?"}
-                %>
+              garden_booking_path(booking.garden, booking), :class => 'btn btn-flat w-100',
+              data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir annuler cette réservation?"}
+              %>
           </div>
         </div>
       </div>
@@ -83,9 +75,9 @@
   <% @past_bookings.each do |booking| %>
       <div class="card-dashboard-center">
         <% if booking.garden.photos.empty? %>
-          <%= image_tag "garden_one" %>
+          <%= image_tag "garden_one", class:"img-garden" %>
           <% else %>
-          <%= cl_image_tag booking.garden.photos.first.key%>
+          <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
           <% end %>
         <div class="card-garden-infos card-garden-infos-dashboard w-100">
           <div class="card-garden-left">
@@ -93,16 +85,16 @@
             <p><%= booking.garden.town%></p>
           </div>
           <div class="card-garden-right">
-            <h6>Capacité : <%= booking.garden.capacity %></h6>
-            <h2 class="card-garden-pricing"><%= booking.garden.price_per_hour %>€ /heure</h2>
-              <%= simple_form_for [booking.garden, @review] do |f| %>
-                <%= f.input :content, label: "Commentaire :"%>
-                <%= f.input :rating, label: "Note :" %>
-                <%= f.submit "Notez votre hôte", class: "btn btn-flat w-100" %>
-              <% end %>
+            <p>Capacité : <%= booking.garden.capacity %></p>
+            <p class="card-garden-pricing"><%= booking.garden.price_per_hour %>€ /heure</p>
+            <%= simple_form_for [booking.garden, @review] do |f| %>
+              <%= f.input :content, label: "Commentaire :"%>
+              <%= f.input :rating, label: "Note :" %>
+              <%= f.submit "Notez votre hôte", class: "btn btn-flat w-100" %>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
-    </div>
+  </div>
 </div>

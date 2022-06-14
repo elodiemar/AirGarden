@@ -1,27 +1,24 @@
+// card classic
+
 //smalest devices
 @media (min-width: 100px) and (max-width: 575px) {
-
   .cards  {
     display: grid;
     grid-template-columns: 1fr;
   }
-
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-
   .cards  {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 16px;
   }
-
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-
   .cards  {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -31,7 +28,6 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
   .cards{
     display: grid;
     grid-template-columns:  1fr 1fr 1fr 1fr;
@@ -40,17 +36,14 @@
 }
 
 .card-garden {
-
-  height: 235px;
+  height: 240px;
   width: 200px;
   margin-top: 40px;
   overflow: hidden;
   background: white;
   border-radius: 5px;
   box-shadow: 0 0 15px #00000033;
-  padding-bottom: 10px;
 }
-
 
 .garden-container {
   margin: auto;
@@ -59,7 +52,6 @@
   justify-content: center;
 }
 
-
 .img-garden {
   height: 150px;
   width: 215px;
@@ -67,51 +59,14 @@
 
 }
 
-
-
 a {
   text-decoration: none;
   color: black;
 }
 
 
+// card to add garden in dashboard
 
-
-
-.card-garden-infos {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  text-decoration: none;
-  color: black;
-}
-.card-garden-infos-dashboard {
-  display: block;
-  padding: 15px;
-}
-.card-garden-pricing {
-text-align: right;
-}
-
-.card-dashboard-center {
-  margin-top: 20px;
-  overflow: hidden;
-  justify-content: space-between;
-  background: white;
-  width: 230px;
-  border-radius: 4px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  img {
-    min-height: 180px;
-    max-height: 200px;
-    object-fit: cover;
-  }
-}
 .card-dashboard-center.card-add-garden {
   border: solid #1bdd87 10px;
   justify-content: center;

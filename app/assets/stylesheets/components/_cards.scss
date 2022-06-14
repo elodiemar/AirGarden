@@ -38,7 +38,7 @@
 .card-garden {
   height: 240px;
   width: 200px;
-  margin-top: 40px;
+  margin-top: 10px;
   overflow: hidden;
   background: white;
   border-radius: 5px;
@@ -66,6 +66,12 @@ a {
 
 
 // card to add garden in dashboard
+
+.card-dashboard-center {
+  height: 240px;
+  width: 200px;
+  margin-top: 10px;
+}
 
 .card-dashboard-center.card-add-garden {
   border: solid #1bdd87 10px;

@@ -17,20 +17,19 @@
 
           <div class="card-garden-infos card-garden-infos-dashboard w-100">
             <div class="card-garden-left px-3">
-              <h2><%= garden.title %></h2>
+              <h3><%= garden.title %></h3>
               <p><%= garden.town%></p>
             </div>
             <div class="card-garden-right">
-              <h6>Capacité : <%= garden.capacity %></h6>
-              <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>
+              <p>Capacité : <%= garden.capacity %></p>
+              <p class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</p>
               <div class="d-flex justify-content-between">
-                <%= link_to "Modifier",  edit_garden_path(garden), :class => 'btn btn-flat' %>
+                <%= link_to "Modifier",  edit_garden_path(garden), :class => 'btn btn-flat mx-1' %>
                 <br>
                 <%= link_to "Supprimer",
                   garden_path(garden), :class => 'btn btn-flat',
                   data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir supprimer ce jardin?"}%>
               </div>
-
             </div>
 
           </div>
@@ -40,14 +39,8 @@
           <%= link_to "+",  new_garden_path, class: "btn btn-flat btn-add btn-add-in-card" %>
       </div>
     </div>
-    <br>
-    <br>
 
-
-
-  <br>
-  <br>
-  <h2 class="dash_titles"> Mes réservations à venir </h2>
+  <h2 class="dash_titles mt-5"> Mes réservations à venir </h2>
 
   <div class="container d-flex flex-wrap">
   <% @next_bookings.each do |booking| %>

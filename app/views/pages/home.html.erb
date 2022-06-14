@@ -1,40 +1,40 @@
 <div class="home-banner">
-    <h1>Privatisez un jardin ou une piscine !</h1>
-    <h4>Envie d'un écrin de verdure pour un anniversaire ou une réunion de famille ou simplement un apéro piscine ? </h4>
-    <h4>Trouver VOTRE jardin idéal</h4>
+  <h1 class= "mt-5">Privatisez un jardin ou une piscine !</h1>
   <div class="d-flex justify-content-center">
     <%= form_tag gardens_path, method: :get, class: "d-flex align-center w-50" do %>
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Recherche ton jardin idéal par mot clé ou ville"
+    placeholder: "Ville "
     %>
     <%= submit_tag "Rechercher", class: "btn btn-dark" %>
     <% end %>
   </div>
 </div>
 
-<div class="container d-flex flex-wrap justify-content-between">
-  <% @gardens.last(12).each do |garden| %>
-    <div class="card-garden ">
+<div class="garden-container">
+  <div class="cards">
+    <% @gardens.last(12).each do |garden| %>
+      <div class="card-garden">
       <%= link_to garden_path(garden) do %>
-      <% if garden.photos.empty? %>
-        <%= image_tag "garden_one" %>
-        <% else %>
-        <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
-        <% end %>
-      <% end %>
-      <div class="card-garden-infos mt-3">
-        <div class="card-garden-left px-2">
-          <h2><%= garden.title %></h2>
-          <p><%= garden.town %></p>
-        </div>
-        <div class="card-garden-right px-3">
 
-          <h6>Capacité : <%= garden.capacity %></h6>
-          <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>
-        </div>
+      <% if garden.photos.empty? %>
+        <%= image_tag "garden_one", class:"img-garden " %>
+      <% else %>
+        <%= cl_image_tag garden.photos.first.key, class:"img-garden" %>
+      <% end %>
+
+      <div class="card-garden-infos mt-3 card-garden-left px-2">
+        <h3><%= garden.title %></h3>
+        <p><%= garden.town %></p>
       </div>
-    </div>
-  <% end %>
+
+      <div class="card-garden-right px-3">
+        <p>Capacité : <%= garden.capacity %></p>
+        <p class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</p>
+      </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>

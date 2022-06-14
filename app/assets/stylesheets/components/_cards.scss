@@ -1,67 +1,72 @@
-.card-garden {
-  margin-top: 40px;
-  overflow: hidden;
-  background: white;
-  width: calc(25% - 10px);
-  border-radius: 7px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding-bottom: 10px;
-}
+// card classic
 
-
-.card-garden > a > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-garden h2 {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.card-garden h6 {
-  font-size: 14px;
-}
-
-.card-garden p {
-  font-size: 12px;
-  opacity: .7;
-}
-
-
-.card-garden-infos {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-.card-garden-infos-dashboard {
-  display: block;
-  padding: 15px;
-}
-.card-garden-pricing {
-text-align: right;
-}
-
-.card-dashboard-center {
-  margin-top: 40px;
-  overflow: hidden;
-  justify-content: space-between;
-  background: white;
-  width: calc(30% - 10px);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  img {
-    max-height: 200px;
-    max-width: 250px;
-    object-fit: cover;
+//smalest devices
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards  {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards  {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards  {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+.card-garden {
+  height: 240px;
+  width: 200px;
+  margin-top: 40px;
+  overflow: hidden;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px #00000033;
+}
+
+.garden-container {
+  margin: auto;
+  width: fit-content;
+  align-content: center;
+  justify-content: center;
+}
+
+.img-garden {
+  height: 150px;
+  width: 215px;
+  object-fit: cover;
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+// card to add garden in dashboard
+
 .card-dashboard-center.card-add-garden {
   border: solid #1bdd87 10px;
   justify-content: center;

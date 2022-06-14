@@ -1,5 +1,7 @@
 .home-banner {
-  background-image: asset-url("garden_pool.png");
+  background-image:
+  linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 93, 0.3)),
+  asset-url("garden_pool.png");
   background-color: rgb(14, 12, 12);
   background-size: cover;
   background-position: center;

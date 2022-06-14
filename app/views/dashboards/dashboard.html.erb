@@ -1,52 +1,46 @@
 <div class="container fullscreen_footer">
-    <h1><strong>Mon Espace</strong></h1>
-    <br>
-    <br>
-    <h2 class="dash_titles"> Mes jardins</h2>
-    <br>
-    <br>
+  <h1><strong>Mon Espace</strong></h1>
+  <h2 class="dash_titles"> Mes jardins</h2>
 
-    <div class="container d-flex flex-wrap">
+  <div class="garden-container">
+    <div class="cards">
       <% @gardens.each do |garden| %>
-        <div class="card-dashboard-center">
+        <div class="card-garden">
           <% if garden.photos.empty? %>
-            <%= image_tag "garden_one" %>
+            <%= image_tag "garden_one", class:"img-garden" %>
           <% else %>
-            <%= cl_image_tag garden.photos.first.key %>
+            <%= cl_image_tag garden.photos.first.key, class:"img-garden" %>
           <% end %>
-          <div class="card-garden-infos card-garden-infos-dashboard w-100">
-            <div class="card-garden-left px-3">
-              <h2><%= garden.title %></h2>
-              <p><%= garden.town%></p>
-            </div>
-            <div class="card-garden-right">
-              <p>Capacité : <%= garden.capacity %></p>
-              <p class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</p>
-              <div class="d-flex justify-content-between">
-                <%= link_to "Modifier",  edit_garden_path(garden), :class => 'btn btn-flat' %>
-                <br>
-                <%= link_to "Supprimer",
-                  garden_path(garden), :class => 'btn btn-flat',
-                  data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir supprimer ce jardin?"}%>
-              </div>
-            </div>
+          <h3 class="text-center my-2"><%= garden.title %></h3>
+          <div class="d-flex justify-content-between mx-1">
+            <p>Capacité : <%= garden.capacity %></p>
+            <%= link_to  edit_garden_path(garden) do %>
+              <i class="fa-solid fa-pen-to-square mx-2"></i>
+            <% end %>
+          </div>
+          <div class="d-flex justify-content-between mx-1">
+            <p class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</p>
+            <%= link_to garden_path(garden), data: {turbo_method: :delete, turbo_confirm: "Veux-tu supprimer ce jardin ?"} do %>
+              <i class="fa-solid fa-trash card-project-trash mx-2"></i>
+            <% end %>
           </div>
         </div>
       <% end %>
+
       <div class="card-dashboard-center card-add-garden">
         <%= link_to "+",  new_garden_path, class: "btn btn-flat btn-add btn-add-in-card" %>
       </div>
     </div>
+  </div>
 
   <h2 class="dash_titles mt-4"> Mes réservations à venir </h2>
-
   <div class="container d-flex flex-wrap">
   <% @next_bookings.each do |booking| %>
       <div class="card-dashboard-center">
         <% if booking.garden.photos.empty? %>
-          <%= image_tag "garden_one" %>
+          <%= image_tag "garden_one", class:"img-garden" %>
           <% else %>
-          <%= cl_image_tag booking.garden.photos.first.key%>
+          <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
           <% end %>
         <div class="card-garden-infos card-garden-infos-dashboard w-100">
           <div class="card-garden-left px-3">
@@ -81,9 +75,9 @@
   <% @past_bookings.each do |booking| %>
       <div class="card-dashboard-center">
         <% if booking.garden.photos.empty? %>
-          <%= image_tag "garden_one" %>
+          <%= image_tag "garden_one", class:"img-garden" %>
           <% else %>
-          <%= cl_image_tag booking.garden.photos.first.key%>
+          <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
           <% end %>
         <div class="card-garden-infos card-garden-infos-dashboard w-100">
           <div class="card-garden-left">

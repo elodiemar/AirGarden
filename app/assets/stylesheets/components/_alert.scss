@@ -4,3 +4,21 @@
   right: 16px;
   z-index: 1000;
 }
+
+//icone status validé
+
+.status-1 {
+  color: green;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+//icone attente de validation
+
+.status-2 {
+  color: rgb(222, 180, 14);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+}

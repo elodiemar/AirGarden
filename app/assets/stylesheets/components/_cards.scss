@@ -6,6 +6,12 @@
     display: grid;
     grid-template-columns: 1fr;
   }
+
+  .cards-map {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -13,6 +19,12 @@
   .cards  {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+
+  .cards-map {
+    display: grid;
+    grid-template-columns: 1fr;
     grid-gap: 16px;
   }
 }
@@ -24,6 +36,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
   }
+
+  .cards-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
 }
 
 // Large devices (desktops, 992px and up)
@@ -33,7 +51,14 @@
     grid-template-columns:  1fr 1fr 1fr 1fr;
     grid-gap: 45px;
   }
+  .cards-map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 45px;
+  }
 }
+
+//card homepage & mes jardins in dash
 
 .card-garden {
   height: 330px;
@@ -46,6 +71,7 @@
   position: relative;
 }
 
+// card resa a venir & passées
 .card-resa {
   height: 385px;
   width: 280px;
@@ -56,7 +82,6 @@
   box-shadow: 0 0 15px #00000033;
   position: relative;
 }
-
 
 .garden-container {
   margin: auto;
@@ -69,7 +94,6 @@
   height: 200px;
   width: 280px;
   object-fit: cover;
-
 }
 
 a {

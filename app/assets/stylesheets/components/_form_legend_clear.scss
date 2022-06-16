@@ -8,3 +8,52 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .form-container {
+    margin: auto;
+    width: 40vh;
+    align-content: center;
+    justify-content: center;
+    border: 1px solid #1BCB7F;
+    padding: 15px;
+    background-color: white;
+    color: #777
+  }
+
+}
+
+.render-links > a {
+  color: #777
+}
+
+@media (min-width: 576px) {
+  .form-container {
+    margin: auto;
+    width: 60vh;
+    align-content: center;
+    justify-content: center;
+    border: 1px solid #1BCB7F;
+    padding: 15px;
+    background-color: white;
+    color: #777
+  }
+}
+
+.form-inputs > input {
+  background-color: white;
+}
+
+.form-inputs input[type=text], input[type=email], input[type=password],  input[type=file] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+.form-inputs label {
+  color: #777;
+  font-size: 0.8em;
+}

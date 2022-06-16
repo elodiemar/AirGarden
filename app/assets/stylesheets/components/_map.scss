@@ -1,21 +1,9 @@
 #map {
-  height: 70vh!important;
-  position: sticky;
-  right: 20px;
-  width: 90%!important;
+  position:fixed;
+  height: 40vh!important;
+  right: 50px;
+  width: 45%!important;
   border: 2mm solid rgb(246, 250, 246);
   box-shadow: 0 0 5px rgb(77, 79, 77);
-  margin-top: 40px;
-}
-
-.gardens {
-  width: 60% !important;
-  height: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  .card-garden {
-    width: calc(35% - 10px);
-  }
+  margin-top: 25px;
 }

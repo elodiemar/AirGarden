@@ -15,34 +15,37 @@
 </div>
 
 
-<div class="card-garden justify-content-center">
-    <div class="gardens">
-      <% @gardens.each do |garden| %>
-        <div class="card-garden justify-content-center">
+<div class="row mt-3 ">
+  <div class="col-md-6 ">
+    <div class="container d-flex justify-content-around mx-3">
+      <div class="cards-map">
+        <% @gardens.each do |garden| %>
+          <div class="card-garden mt-4">
           <%= link_to garden_path(garden) do %>
-          <% if garden.photos.empty? %>
-            <%= image_tag "garden_one" %>
+            <% if garden.photos.empty? %>
+              <%= image_tag "garden_one", class:"img-garden" %>
             <% else %>
-            <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
+              <%= cl_image_tag garden.photos.first.key, class:"img-garden" %>
             <% end %>
+            <h3 class="text-center my-2"><%= garden.title %></h3>
+            <p class="mx-1"><%= garden.town %></p>
+            <div class="d-flex justify-content-between mx-1">
+              <p> Capacité : <%= garden.capacity %></p>
+              <p><%= garden.price_per_hour %>€ /heure</p>
+            </div>
           <% end %>
-          <div class="card-garden-infos">
-            <div class="card-garden-left">
-              <h2><%= garden.title %></h2>
-              <p><%= garden.town %></p>
-            </div>
-            <div class="card-garden-right">
-              <h6>Capacité : <%= garden.capacity %></h6>
-              <h2 class="card-garden-pricing"><%= garden.price_per_hour %>€ /heure</h2>
-            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-    <div style="width: 100%; height: 600px"
+  </div>
+
+  <div class="col-md-6 ">
+    <div
       id="map"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+  </div>
 </div>

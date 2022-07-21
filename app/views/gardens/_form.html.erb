@@ -1,11 +1,13 @@
-<%= simple_form_for(garden) do |f| %>
-  <%= f.input :title, label: "Nom"%>
-  <%= f.input :size, label: "Taille du jardin" %>
-  <%= f.input :capacity, label: "Nombre de personnes" %>
-  <%= f.input :description, label: "Description"  %>
-  <%= f.input :price_per_hour, label: "Prix par heure" %>
-  <%= f.input :address, label: "Adresse (rue, avenue, ...)"  %>
-  <%= f.input :town, label: "Ville"  %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Créer mon jardin" %>
-<% end %>
+<div class="form-container text-center mt-3">
+  <%= simple_form_for(garden) do |f| %>
+    <%= f.input :title, label: "Nom du jardin"%>
+    <%= f.input :size, label: "Superficie" %>
+    <%= f.input :capacity, label: "Capacité d'accueil" %>
+    <%= f.input :description, label: "Description"  %>
+    <%= f.input :price_per_hour, label: "Prix par heure" %>
+    <%= f.input :address, label: "Adresse"  %>
+    <%= f.input :town, label: "Ville"  %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Créer mon jardin" %>
+  <% end %>
+</div>

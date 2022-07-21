@@ -32,53 +32,56 @@
     </div>
   </div>
 
-  <h2 class="mt-4 text-center"> Mes réservations à venir :</h2>
-  <div class="cards my-4">
-    <% @next_bookings.each do |booking| %>
-    <div class="card-resa">
-      <% if booking.garden.photos.empty? %>
-        <%= image_tag "garden_one", class:"img-garden" %>
-      <% else %>
-        <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
-      <% end %>
 
-        <% if booking.status %>
-        <i class="status-1 fa-solid fa-check "></i>
-      <% else %>
-        <i class="fa-solid fa-clock-rotate-left status-2"></i>
-      <% end %>
-      <div class="text-center mx-2 mt-1">
-      <h3><%= booking.garden.title %></h2>
-      <p>Capacité : <%= booking.garden.capacity %></p>
-      <p>Prix total : <%= booking.total_price %>€ </p>
-        <%= link_to "Envoyer un message", garden_booking_room_path(booking.id, booking.room.id, booking.room.id),  :class => 'btn btn-flat w-75 mb-2' %>
-        <%= link_to "Annuler",
-          garden_booking_path(booking.garden, booking), :class => 'btn btn-flat w-75',
-          data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir annuler cette réservation?"}
-        %>
-      </div>
-    </div>
-    <% end %>
-  </div>
-
-
-  <h2 class="mt-4 text-center"> Mes réservations passées : </h2>
-  <div class="cards my-4">
-    <% @past_bookings.each do |booking| %>
-    <div class="card-resa">
-      <% if booking.garden.photos.empty? %>
+  <% if @next_bookings.present? %>
+    <h2 class="mt-4 text-center"> Mes réservations à venir :</h2>
+    <div class="cards my-4">
+      <% @next_bookings.each do |booking| %>
+      <div class="card-resa">
+        <% if booking.garden.photos.empty? %>
           <%= image_tag "garden_one", class:"img-garden" %>
-      <% else %>
-        <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
-      <% end %>
-      <div class="text-center mx-2 mt-1">
-        <h2><%= booking.garden.title %></h2>
-          <%= simple_form_for [booking.garden, @review] do |f| %>
-            <%= f.input :content, label: "Commentaire :"%>
-            <%= f.submit "Notez votre hôte", class: "btn btn-flat w-75" %>
-          <% end %>
+        <% else %>
+          <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
+        <% end %>
+          <% if booking.status %>
+          <i class="status-1 fa-solid fa-check "></i>
+        <% else %>
+          <i class="fa-solid fa-clock-rotate-left status-2"></i>
+        <% end %>
+        <div class="text-center mx-2 mt-1">
+        <h3><%= booking.garden.title %></h2>
+        <p>Capacité : <%= booking.garden.capacity %></p>
+        <p>Prix total : <%= booking.total_price %>€ </p>
+          <%= link_to "Envoyer un message", garden_booking_room_path(booking.id, booking.room.id, booking.room.id),  :class => 'btn btn-flat w-75 mb-2' %>
+          <%= link_to "Annuler",
+            garden_booking_path(booking.garden, booking), :class => 'btn btn-flat w-75',
+            data: {turbo_method: :delete, turbo_confirm: "êtes vous sûr de vouloir annuler cette réservation?"}
+          %>
+        </div>
       </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
+  <% end %>
+
+  <% if @past_bookings.present? %>
+    <h2 class="mt-4 text-center"> Mes réservations passées : </h2>
+    <div class="cards my-4">
+      <% @past_bookings.each do |booking| %>
+      <div class="card-resa">
+        <% if booking.garden.photos.empty? %>
+            <%= image_tag "garden_one", class:"img-garden" %>
+        <% else %>
+          <%= cl_image_tag booking.garden.photos.first.key, class:"img-garden"%>
+        <% end %>
+        <div class="text-center mx-2 mt-1">
+          <h2><%= booking.garden.title %></h2>
+            <%= simple_form_for [booking.garden, @review] do |f| %>
+              <%= f.input :content, label: "Commentaire :"%>
+              <%= f.submit "Notez votre hôte", class: "btn btn-flat w-75" %>
+            <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

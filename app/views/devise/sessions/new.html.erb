@@ -1,10 +1,9 @@
-<div class="d-flex">
+<div class="d-flex fullscreen_footer">
   <%= link_to :back do %>
     <i class="fa-solid fa-arrow-left fa-2x mx-4 mt-4"></i>
   <% end %>
 
-
-  <div class="form-container text-center mt-3">
+  <div class="form-container text-center mt-5 ">
     <h2>Connectez-vous</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
